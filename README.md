@@ -19,9 +19,9 @@ pip install -r requirements.txt
 2. Run the app:
 app.py
 
+# AI Aggregator
 
-## Dataset
-CIFAR-10 dataset (10 classes, 32x32 RGB images)
+The live deployed app is at https://cifar10-image-classifier.streamlit.app 
 
 ## Author
 Nikoletta Biri
