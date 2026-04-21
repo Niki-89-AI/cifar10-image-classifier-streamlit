@@ -1,3 +1,4 @@
+
 import streamlit as st
 import tensorflow as tf
 import numpy as np
@@ -93,25 +94,27 @@ Enhanced CNN (~1.2M parameters):
     st.subheader("Enhancements over baseline")
     st.markdown(
         """
-- **Data augmentation:** rotation ±15°, shifts ±10%, horizontal flip, zoom ±10%
 - **Dropout** regularization (0.25 after conv blocks, 0.5 before output)
 - **Batch normalization** for faster, more stable training
+- **Deeper architecture** (3 conv blocks, 32 → 64 → 128 filters)
 - **Hyperparameter tuning** on batch size and dropout rates
+- **EarlyStopping** on validation loss for better generalization
 """
     )
 
     st.subheader("Results")
     st.markdown(
         """
-| Model        | Augmentation | Dropout     | Accuracy |
-|--------------|--------------|-------------|----------|
-| Baseline     | No           | No          | ~10%     |
-| Experiment 1 | Yes          | 0.25 / 0.5  | ~81%     |
-| Experiment 2 | Yes          | 0.25 / 0.5  | **~82%** |
+| Model              | Augmentation | Dropout    | Test Acc |
+|--------------------|--------------|------------|----------|
+| Baseline           | No           | No         | ~10%     |
+| Enhanced (with aug)| Yes          | 0.25 / 0.5 | 0.79     |
+| Enhanced (no aug)  | No           | 0.25 / 0.5 | **0.84** |
 
-Best validation accuracy: **~82%**
-Strongest classes: automobile, ship, truck
-Hardest class: cat
+Deployed model: **Enhanced (no aug)**
+Test accuracy: **84%** · Weighted F1: **0.84**
+Best class: automobile (F1 0.93)
+Hardest class: cat (F1 0.71)
 """
     )
 
